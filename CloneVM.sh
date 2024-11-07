@@ -11,8 +11,9 @@ else
   base_ip=${4:-"192.168.3"}  # Nếu không nhập base_ip, sẽ dùng giá trị mặc định
 fi
 
+
 # Duyệt qua các VM ID từ start_id đến end_id
-for ((i=$start_id; i<=$end_id; i++))
+for i in $(seq $start_id $end_id)
 do
   # Clone VM từ ID được nhập
   qm clone $vm_id_to_clone $i --full
